@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#102236">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="ClearClause">
+    <meta name="description" content="A private prototype that explains possible risks in Hong Kong legal documents in plain language.">
+    <title>ClearClause</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" href="./icons/app-icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./icons/app-icon-180.png">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="ClearClause home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v5h5M10 12h5M10 16h5"/></svg>
+        </span>
+        <span>ClearClause</span>
+      </a>
+      <span class="status-pill"><span></span><b class="online-copy">On-device</b><b class="offline-copy">Offline</b></span>
+      <button id="install-button" class="install-button" type="button">Install</button>
+    </header>
+
+    <main>
+      <section id="home" class="screen active" aria-labelledby="home-title">
+        <div class="hero">
+          <p class="eyebrow">Hong Kong legal document checker</p>
+          <h1 id="home-title">Know what you’re agreeing to.</h1>
+          <p class="hero-copy">A plain-language second look at contract terms from your side of the deal.</p>
+          <button id="start-button" class="primary-button" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M10 13h5M10 17h3"/><circle cx="17" cy="17" r="3"/><path d="m19 19 2 2"/></svg>
+            Check a document
+          </button>
+        </div>
+
+        <section class="card how-card" aria-labelledby="how-title">
+          <p id="how-title" class="eyebrow">How it works</p>
+          <ol>
+            <li><span>1</span><div><strong>Add your document</strong><p>Choose a PDF or clear page photos.</p></div></li>
+            <li><span>2</span><div><strong>Tell us your position</strong><p>Your role and what you want from the deal.</p></div></li>
+            <li><span>3</span><div><strong>See what needs attention</strong><p>Plain explanations, clause evidence, and questions to ask.</p></div></li>
+          </ol>
+        </section>
+
+        <section class="privacy-row">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2M6 10h12v10H6z"/></svg>
+          <div><strong>Private prototype</strong><p>Selected files and your answers stay inside this browser and are not uploaded.</p></div>
+        </section>
+
+        <p class="legal-note">ClearClause highlights possible risks and missing context. It cannot determine another party’s intent and is not a substitute for a Hong Kong-qualified lawyer.</p>
+      </section>
+
+      <section id="setup" class="screen" aria-labelledby="setup-title">
+        <button class="back-button" type="button" data-go="home" aria-label="Back to home">‹</button>
+        <p class="eyebrow">New review</p>
+        <h1 id="setup-title" class="screen-title">Give the review context</h1>
+        <p class="screen-copy">The same clause can help one party and hurt another.</p>
+
+        <form id="review-form">
+          <section class="card form-card">
+            <p class="step-label">1 · Document</p>
+            <div id="drop-zone" class="drop-zone">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M12 17V10M9 13l3-3 3 3"/></svg>
+              <strong>Add PDF or clear page photos</strong>
+              <p>Include schedules, appendices, and referenced terms if you have them.</p>
+              <div class="file-actions">
+                <label class="secondary-button">Choose files<input id="file-input" type="file" accept="application/pdf,image/*" multiple></label>
+                <button id="sample-file-button" class="text-button" type="button">Use sample</button>
+              </div>
+            </div>
+            <ul id="file-list" class="file-list" aria-live="polite"></ul>
+            <div class="prototype-warning">
+              <strong>Prototype limitation</strong>
+              <p>The offline version accepts files for flow testing, but it does not yet read their contents. Results below use clearly labelled sample clauses.</p>
+            </div>
+          </section>
+
+          <section class="card form-card">
+            <p class="step-label">2 · Hong Kong context</p>
+            <div class="jurisdiction-row">
+              <span class="round-icon">HK</span>
+              <div><strong>Hong Kong SAR</strong><p>Hong Kong law is the review baseline</p></div>
+            </div>
+            <label class="field">Document type
+              <select id="document-type">
+                <option>Services / supplier agreement</option>
+                <option>Employment contract</option>
+                <option>Tenancy agreement</option>
+                <option>Sale and purchase</option>
+                <option>NDA / confidentiality</option>
+                <option>Loan / guarantee</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label class="field">Document language
+              <select id="document-language">
+                <option>English</option>
+                <option>繁體中文</option>
+                <option>Bilingual / 雙語</option>
+              </select>
+            </label>
+          </section>
+
+          <section class="card form-card">
+            <p class="step-label">3 · Your side</p>
+            <label class="field">Which party are you?
+              <select id="party-role">
+                <option>Customer</option><option>Contractor</option><option>Employee</option>
+                <option>Tenant</option><option>Buyer</option><option>Seller</option><option>Other</option>
+              </select>
+            </label>
+          </section>
+
+          <section class="card form-card">
+            <p class="step-label">4 · Your goal</p>
+            <label class="field">What matters most to you?
+              <textarea id="goal" rows="4">I want to be able to cancel easily and avoid surprise costs.</textarea>
+            </label>
+            <p class="field-help">Example: “I need to leave with 30 days’ notice and keep ownership of my work.”</p>
+          </section>
+
+          <button id="review-button" class="primary-button" type="submit">Preview sample review <span>→</span></button>
+        </form>
+      </section>
+
+      <section id="analysis" class="screen analysis-screen" aria-live="polite">
+        <div class="progress-ring"><svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="52"/><circle id="progress-circle" class="progress" cx="60" cy="60" r="52"/></svg><span>⌕</span></div>
+        <h1 id="analysis-status">Preparing the sample review…</h1>
+        <p id="analysis-context"></p>
+        <div class="analysis-steps">
+          <p data-progress="25"><span>○</span> Load sample clauses</p>
+          <p data-progress="60"><span>○</span> Apply your selected perspective</p>
+          <p data-progress="90"><span>○</span> Prepare sample findings</p>
+        </div>
+        <p class="sample-label">Prototype animation — sample findings only</p>
+      </section>
+
+      <section id="results" class="screen" aria-labelledby="results-title">
+        <div class="results-header">
+          <div><p class="eyebrow">Sample review complete</p><strong id="result-file-name">Sample service agreement.pdf</strong></div>
+          <button id="share-button" class="icon-button" type="button" aria-label="Share review">↥</button>
+        </div>
+
+        <section class="verdict-card">
+          <div><p>Needs attention</p><h1 id="results-title">Some terms work against your goal.</h1></div>
+          <span>!</span>
+          <hr>
+          <p>The agreement is not necessarily unsafe, but cancellation, renewal, and data-use terms deserve changes or clarification before you sign.</p>
+        </section>
+
+        <section class="context-strip">
+          <span>◎</span><div><strong id="role-summary"></strong><p id="goal-summary"></p></div>
+        </section>
+
+        <section class="card hk-card">
+          <div class="section-heading"><p class="eyebrow">Hong Kong law context</p><span>HK</span></div>
+          <h2 id="type-summary"></h2>
+          <p id="language-summary"></p>
+          <ul>
+            <li>Governing law, Hong Kong courts, and arbitration seat</li>
+            <li>Exclusion, liability, and indemnity wording</li>
+            <li>Consumer fairness rules where they may apply</li>
+            <li>Personal-data purpose, sharing, retention, and security</li>
+          </ul>
+          <p class="mini-note">A flag means “get advice or clarification,” not that a clause is automatically invalid.</p>
+        </section>
+
+        <div class="section-heading results-section-heading"><h2>What needs attention</h2><span>3 sample findings</span></div>
+        <div id="concern-list" class="finding-list"></div>
+
+        <div class="section-heading results-section-heading"><h2>What works for you</h2></div>
+        <div id="positive-list" class="finding-list"></div>
+
+        <section class="card questions-card">
+          <p class="eyebrow">Take action</p>
+          <h2>Questions to send the other party</h2>
+          <ul id="question-list"></ul>
+          <button id="copy-button" class="dark-button" type="button">Copy questions</button>
+        </section>
+
+        <section class="card missing-card">
+          <span>⌕</span><div><strong>Missing context</strong><p>The agreement refers to a “Data Policy” and “Order Form,” but neither was included. They could change this review.</p></div>
+        </section>
+
+        <button class="secondary-wide" type="button" data-go="setup">Start another review</button>
+        <p class="legal-note">This is a sample AI-product prototype, not legal advice. It does not yet read the selected document and may not be used to decide whether to sign.</p>
+      </section>
+    </main>
+
+    <dialog id="install-dialog" class="sheet">
+      <div class="sheet-handle"></div>
+      <div class="sheet-heading"><div><p class="eyebrow">One-time setup</p><h2>Add ClearClause to iPhone</h2></div><button class="close-button" data-close type="button">×</button></div>
+      <ol class="install-steps">
+        <li><span>1</span><div><strong>Open this page in Safari</strong><p>Home Screen installation must be started from Safari.</p></div></li>
+        <li><span>2</span><div><strong>Tap Share</strong><p>Choose “Add to Home Screen,” then tap Add.</p></div></li>
+        <li><span>3</span><div><strong>Open it once while online</strong><p>The prototype can then reopen offline without Xcode.</p></div></li>
+      </ol>
+      <button class="primary-button" data-close type="button">Got it</button>
+    </dialog>
+
+    <template id="finding-template">
+      <article class="finding-card">
+        <button class="finding-summary" type="button" aria-expanded="false">
+          <span class="finding-icon"></span>
+          <span><small></small><strong></strong></span>
+          <b>⌄</b>
+        </button>
+        <p class="finding-explanation"></p>
+        <div class="finding-detail">
+          <hr><label>The sample clause</label><blockquote></blockquote><p class="source"></p>
+          <label>Why it matters to you</label><p class="relevance"></p>
+          <label>What to ask for</label><p class="suggestion"></p>
+        </div>
+      </article>
+    </template>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

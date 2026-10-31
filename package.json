@@ -1,0 +1,9 @@
+{
+  "name": "clearclause-prototype",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check docs/app.js && node --check docs/service-worker.js"
+  }
+}
