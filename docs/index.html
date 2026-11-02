@@ -22,135 +22,141 @@
         </span>
         <span>ClearClause</span>
       </a>
-      <span class="status-pill"><span></span><b class="online-copy">On-device</b><b class="offline-copy">Offline</b></span>
-      <button id="install-button" class="install-button" type="button">Install</button>
+      <span class="status-pill"><span></span><b class="online-copy" data-i18n="statusOnDevice">On-device</b><b class="offline-copy" data-i18n="statusOffline">Offline</b></span>
+      <button id="install-button" class="install-button" type="button" data-i18n="install">Install</button>
+      <button id="language-toggle" class="language-toggle" type="button" aria-label="切換至繁體中文">繁中</button>
     </header>
 
     <main>
       <section id="home" class="screen active" aria-labelledby="home-title">
         <div class="hero">
-          <p class="eyebrow">Hong Kong legal document checker</p>
-          <h1 id="home-title">Know what you’re agreeing to.</h1>
-          <p class="hero-copy">A plain-language second look at contract terms from your side of the deal.</p>
+          <p class="eyebrow" data-i18n="homeEyebrow">Hong Kong legal document checker</p>
+          <h1 id="home-title" data-i18n="homeTitle">Know what you’re agreeing to.</h1>
+          <p class="hero-copy" data-i18n="homeCopy">A plain-language second look at contract terms from your side of the deal.</p>
           <button id="start-button" class="primary-button" type="button">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M10 13h5M10 17h3"/><circle cx="17" cy="17" r="3"/><path d="m19 19 2 2"/></svg>
-            Check a document
+            <span data-i18n="checkDocument">Check a document</span>
           </button>
         </div>
 
         <section class="card how-card" aria-labelledby="how-title">
-          <p id="how-title" class="eyebrow">How it works</p>
+          <p id="how-title" class="eyebrow" data-i18n="howTitle">How it works</p>
           <ol>
-            <li><span>1</span><div><strong>Add your document</strong><p>Choose a PDF or clear page photos.</p></div></li>
-            <li><span>2</span><div><strong>Tell us your position</strong><p>Your role and what you want from the deal.</p></div></li>
-            <li><span>3</span><div><strong>See what needs attention</strong><p>Plain explanations, clause evidence, and questions to ask.</p></div></li>
+            <li><span>1</span><div><strong data-i18n="how1Title">Add your document</strong><p data-i18n="how1Copy">Choose a PDF or clear page photos.</p></div></li>
+            <li><span>2</span><div><strong data-i18n="how2Title">Tell us your position</strong><p data-i18n="how2Copy">Your role and what you want from the deal.</p></div></li>
+            <li><span>3</span><div><strong data-i18n="how3Title">See what needs attention</strong><p data-i18n="how3Copy">Plain explanations, clause evidence, and questions to ask.</p></div></li>
           </ol>
         </section>
 
         <section class="privacy-row">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2M6 10h12v10H6z"/></svg>
-          <div><strong>Private prototype</strong><p>Selected files and your answers stay inside this browser and are not uploaded.</p></div>
+          <div><strong data-i18n="privacyTitle">Private prototype</strong><p data-i18n="privacyCopy">Selected files and your answers stay inside this browser and are not uploaded.</p></div>
         </section>
 
-        <p class="legal-note">ClearClause highlights possible risks and missing context. It cannot determine another party’s intent and is not a substitute for a Hong Kong-qualified lawyer.</p>
+        <p class="legal-note" data-i18n="homeLegal">ClearClause highlights possible risks and missing context. It cannot determine another party’s intent and is not a substitute for a Hong Kong-qualified lawyer.</p>
       </section>
 
       <section id="setup" class="screen" aria-labelledby="setup-title">
-        <button class="back-button" type="button" data-go="home" aria-label="Back to home">‹</button>
-        <p class="eyebrow">New review</p>
-        <h1 id="setup-title" class="screen-title">Give the review context</h1>
-        <p class="screen-copy">The same clause can help one party and hurt another.</p>
+        <button class="back-button" type="button" data-go="home" data-i18n-aria="backHome" aria-label="Back to home">‹</button>
+        <p class="eyebrow" data-i18n="newReview">New review</p>
+        <h1 id="setup-title" class="screen-title" data-i18n="setupTitle">Give the review context</h1>
+        <p class="screen-copy" data-i18n="setupCopy">The same clause can help one party and hurt another.</p>
 
         <form id="review-form">
           <section class="card form-card">
-            <p class="step-label">1 · Document</p>
+            <p class="step-label" data-i18n="stepDocument">1 · Document</p>
             <div id="drop-zone" class="drop-zone">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M12 17V10M9 13l3-3 3 3"/></svg>
-              <strong>Add PDF or clear page photos</strong>
-              <p>Include schedules, appendices, and referenced terms if you have them.</p>
+              <strong data-i18n="addFilesTitle">Add PDF or clear page photos</strong>
+              <p data-i18n="addFilesCopy">Include schedules, appendices, and referenced terms if you have them.</p>
               <div class="file-actions">
-                <label class="secondary-button">Choose files<input id="file-input" type="file" accept="application/pdf,image/*" multiple></label>
-                <button id="sample-file-button" class="text-button" type="button">Use sample</button>
+                <label class="secondary-button"><span data-i18n="chooseFiles">Choose files</span><input id="file-input" type="file" accept="application/pdf,image/*" multiple></label>
+                <button id="sample-file-button" class="text-button" type="button" data-i18n="useSample">Use sample</button>
               </div>
             </div>
             <ul id="file-list" class="file-list" aria-live="polite"></ul>
             <div class="prototype-warning">
-              <strong>Prototype limitation</strong>
-              <p>The offline version accepts files for flow testing, but it does not yet read their contents. Results below use clearly labelled sample clauses.</p>
+              <strong data-i18n="prototypeTitle">Prototype limitation</strong>
+              <p data-i18n="prototypeCopy">The offline version accepts files for flow testing, but it does not yet read their contents. Results below use clearly labelled sample clauses.</p>
             </div>
           </section>
 
           <section class="card form-card">
-            <p class="step-label">2 · Hong Kong context</p>
+            <p class="step-label" data-i18n="stepHongKong">2 · Hong Kong context</p>
             <div class="jurisdiction-row">
               <span class="round-icon">HK</span>
-              <div><strong>Hong Kong SAR</strong><p>Hong Kong law is the review baseline</p></div>
+              <div><strong data-i18n="hongKongSAR">Hong Kong SAR</strong><p data-i18n="hkBaseline">Hong Kong law is the review baseline</p></div>
             </div>
-            <label class="field">Document type
+            <label class="field"><span data-i18n="documentTypeLabel">Document type</span>
               <select id="document-type">
-                <option>Services / supplier agreement</option>
-                <option>Employment contract</option>
-                <option>Tenancy agreement</option>
-                <option>Sale and purchase</option>
-                <option>NDA / confidentiality</option>
-                <option>Loan / guarantee</option>
-                <option>Other</option>
+                <option value="services" data-i18n="typeServices">Services / supplier agreement</option>
+                <option value="employment" data-i18n="typeEmployment">Employment contract</option>
+                <option value="tenancy" data-i18n="typeTenancy">Tenancy agreement</option>
+                <option value="sale" data-i18n="typeSale">Sale and purchase</option>
+                <option value="nda" data-i18n="typeNDA">NDA / confidentiality</option>
+                <option value="loan" data-i18n="typeLoan">Loan / guarantee</option>
+                <option value="other" data-i18n="other">Other</option>
               </select>
             </label>
-            <label class="field">Document language
+            <label class="field"><span data-i18n="documentLanguageLabel">Document language</span>
               <select id="document-language">
-                <option>English</option>
-                <option>繁體中文</option>
-                <option>Bilingual / 雙語</option>
+                <option value="english" data-i18n="languageEnglish">English</option>
+                <option value="traditional-chinese" data-i18n="languageChinese">Traditional Chinese</option>
+                <option value="bilingual" data-i18n="languageBilingual">Bilingual</option>
               </select>
             </label>
           </section>
 
           <section class="card form-card">
-            <p class="step-label">3 · Your side</p>
-            <label class="field">Which party are you?
+            <p class="step-label" data-i18n="stepYourSide">3 · Your side</p>
+            <label class="field"><span data-i18n="partyLabel">Which party are you?</span>
               <select id="party-role">
-                <option>Customer</option><option>Contractor</option><option>Employee</option>
-                <option>Tenant</option><option>Buyer</option><option>Seller</option><option>Other</option>
+                <option value="customer" data-i18n="partyCustomer">Customer</option>
+                <option value="contractor" data-i18n="partyContractor">Contractor</option>
+                <option value="employee" data-i18n="partyEmployee">Employee</option>
+                <option value="tenant" data-i18n="partyTenant">Tenant</option>
+                <option value="buyer" data-i18n="partyBuyer">Buyer</option>
+                <option value="seller" data-i18n="partySeller">Seller</option>
+                <option value="other" data-i18n="other">Other</option>
               </select>
             </label>
           </section>
 
           <section class="card form-card">
-            <p class="step-label">4 · Your goal</p>
-            <label class="field">What matters most to you?
+            <p class="step-label" data-i18n="stepGoal">4 · Your goal</p>
+            <label class="field"><span data-i18n="goalLabel">What matters most to you?</span>
               <textarea id="goal" rows="4">I want to be able to cancel easily and avoid surprise costs.</textarea>
             </label>
-            <p class="field-help">Example: “I need to leave with 30 days’ notice and keep ownership of my work.”</p>
+            <p class="field-help" data-i18n="goalHelp">Example: “I need to leave with 30 days’ notice and keep ownership of my work.”</p>
           </section>
 
-          <button id="review-button" class="primary-button" type="submit">Preview sample review <span>→</span></button>
+          <button id="review-button" class="primary-button" type="submit">Preview sample review →</button>
         </form>
       </section>
 
       <section id="analysis" class="screen analysis-screen" aria-live="polite">
         <div class="progress-ring"><svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="52"/><circle id="progress-circle" class="progress" cx="60" cy="60" r="52"/></svg><span>⌕</span></div>
-        <h1 id="analysis-status">Preparing the sample review…</h1>
+        <h1 id="analysis-status" data-i18n="analysisPreparing">Preparing the sample review…</h1>
         <p id="analysis-context"></p>
         <div class="analysis-steps">
-          <p data-progress="25"><span>○</span> Load sample clauses</p>
-          <p data-progress="60"><span>○</span> Apply your selected perspective</p>
-          <p data-progress="90"><span>○</span> Prepare sample findings</p>
+          <p data-progress="25"><span>○</span><b data-i18n="analysisLoad">Load sample clauses</b></p>
+          <p data-progress="60"><span>○</span><b data-i18n="analysisPerspective">Apply your selected perspective</b></p>
+          <p data-progress="90"><span>○</span><b data-i18n="analysisFindings">Prepare sample findings</b></p>
         </div>
-        <p class="sample-label">Prototype animation — sample findings only</p>
+        <p class="sample-label" data-i18n="analysisSample">Prototype animation — sample findings only</p>
       </section>
 
       <section id="results" class="screen" aria-labelledby="results-title">
         <div class="results-header">
-          <div><p class="eyebrow">Sample review complete</p><strong id="result-file-name">Sample service agreement.pdf</strong></div>
-          <button id="share-button" class="icon-button" type="button" aria-label="Share review">↥</button>
+          <div><p class="eyebrow" data-i18n="resultsComplete">Sample review complete</p><strong id="result-file-name">Sample service agreement.pdf</strong></div>
+          <button id="share-button" class="icon-button" type="button" data-i18n-aria="shareReview" aria-label="Share review">↥</button>
         </div>
 
         <section class="verdict-card">
-          <div><p>Needs attention</p><h1 id="results-title">Some terms work against your goal.</h1></div>
+          <div><p data-i18n="needsAttention">Needs attention</p><h1 id="results-title" data-i18n="verdictTitle">Some terms work against your goal.</h1></div>
           <span>!</span>
           <hr>
-          <p>The agreement is not necessarily unsafe, but cancellation, renewal, and data-use terms deserve changes or clarification before you sign.</p>
+          <p data-i18n="verdictCopy">The agreement is not necessarily unsafe, but cancellation, renewal, and data-use terms deserve changes or clarification before you sign.</p>
         </section>
 
         <section class="context-strip">
@@ -158,49 +164,49 @@
         </section>
 
         <section class="card hk-card">
-          <div class="section-heading"><p class="eyebrow">Hong Kong law context</p><span>HK</span></div>
+          <div class="section-heading"><p class="eyebrow" data-i18n="hkContext">Hong Kong law context</p><span>HK</span></div>
           <h2 id="type-summary"></h2>
           <p id="language-summary"></p>
           <ul>
-            <li>Governing law, Hong Kong courts, and arbitration seat</li>
-            <li>Exclusion, liability, and indemnity wording</li>
-            <li>Consumer fairness rules where they may apply</li>
-            <li>Personal-data purpose, sharing, retention, and security</li>
+            <li data-i18n="hkBullet1">Governing law, Hong Kong courts, and arbitration seat</li>
+            <li data-i18n="hkBullet2">Exclusion, liability, and indemnity wording</li>
+            <li data-i18n="hkBullet3">Consumer fairness rules where they may apply</li>
+            <li data-i18n="hkBullet4">Personal-data purpose, sharing, retention, and security</li>
           </ul>
-          <p class="mini-note">A flag means “get advice or clarification,” not that a clause is automatically invalid.</p>
+          <p class="mini-note" data-i18n="hkNote">A flag means “get advice or clarification,” not that a clause is automatically invalid.</p>
         </section>
 
-        <div class="section-heading results-section-heading"><h2>What needs attention</h2><span>3 sample findings</span></div>
+        <div class="section-heading results-section-heading"><h2 data-i18n="whatNeedsAttention">What needs attention</h2><span data-i18n="threeFindings">3 sample findings</span></div>
         <div id="concern-list" class="finding-list"></div>
 
-        <div class="section-heading results-section-heading"><h2>What works for you</h2></div>
+        <div class="section-heading results-section-heading"><h2 data-i18n="whatWorks">What works for you</h2></div>
         <div id="positive-list" class="finding-list"></div>
 
         <section class="card questions-card">
-          <p class="eyebrow">Take action</p>
-          <h2>Questions to send the other party</h2>
+          <p class="eyebrow" data-i18n="takeAction">Take action</p>
+          <h2 data-i18n="questionsTitle">Questions to send the other party</h2>
           <ul id="question-list"></ul>
-          <button id="copy-button" class="dark-button" type="button">Copy questions</button>
+          <button id="copy-button" class="dark-button" type="button" data-i18n="copyQuestions">Copy questions</button>
         </section>
 
         <section class="card missing-card">
-          <span>⌕</span><div><strong>Missing context</strong><p>The agreement refers to a “Data Policy” and “Order Form,” but neither was included. They could change this review.</p></div>
+          <span>⌕</span><div><strong data-i18n="missingContext">Missing context</strong><p data-i18n="missingCopy">The agreement refers to a “Data Policy” and “Order Form,” but neither was included. They could change this review.</p></div>
         </section>
 
-        <button class="secondary-wide" type="button" data-go="setup">Start another review</button>
-        <p class="legal-note">This is a sample AI-product prototype, not legal advice. It does not yet read the selected document and may not be used to decide whether to sign.</p>
+        <button class="secondary-wide" type="button" data-go="setup" data-i18n="anotherReview">Start another review</button>
+        <p class="legal-note" data-i18n="resultsLegal">This is a sample AI-product prototype, not legal advice. It does not yet read the selected document and may not be used to decide whether to sign.</p>
       </section>
     </main>
 
     <dialog id="install-dialog" class="sheet">
       <div class="sheet-handle"></div>
-      <div class="sheet-heading"><div><p class="eyebrow">One-time setup</p><h2>Add ClearClause to iPhone</h2></div><button class="close-button" data-close type="button">×</button></div>
+      <div class="sheet-heading"><div><p class="eyebrow" data-i18n="installOnce">One-time setup</p><h2 data-i18n="installTitle">Add ClearClause to iPhone</h2></div><button class="close-button" data-close type="button" data-i18n-aria="close" aria-label="Close">×</button></div>
       <ol class="install-steps">
-        <li><span>1</span><div><strong>Open this page in Safari</strong><p>Home Screen installation must be started from Safari.</p></div></li>
-        <li><span>2</span><div><strong>Tap Share</strong><p>Choose “Add to Home Screen,” then tap Add.</p></div></li>
-        <li><span>3</span><div><strong>Open it once while online</strong><p>The prototype can then reopen offline without Xcode.</p></div></li>
+        <li><span>1</span><div><strong data-i18n="install1Title">Open this page in Safari</strong><p data-i18n="install1Copy">Home Screen installation must be started from Safari.</p></div></li>
+        <li><span>2</span><div><strong data-i18n="install2Title">Tap Share</strong><p data-i18n="install2Copy">Choose “Add to Home Screen,” then tap Add.</p></div></li>
+        <li><span>3</span><div><strong data-i18n="install3Title">Open it once while online</strong><p data-i18n="install3Copy">The prototype can then reopen offline without Xcode.</p></div></li>
       </ol>
-      <button class="primary-button" data-close type="button">Got it</button>
+      <button class="primary-button" data-close type="button" data-i18n="gotIt">Got it</button>
     </dialog>
 
     <template id="finding-template">
@@ -212,9 +218,9 @@
         </button>
         <p class="finding-explanation"></p>
         <div class="finding-detail">
-          <hr><label>The sample clause</label><blockquote></blockquote><p class="source"></p>
-          <label>Why it matters to you</label><p class="relevance"></p>
-          <label>What to ask for</label><p class="suggestion"></p>
+          <hr><label data-finding-label="clause"></label><blockquote></blockquote><p class="source"></p>
+          <label data-finding-label="relevance"></label><p class="relevance"></p>
+          <label data-finding-label="suggestion"></label><p class="suggestion"></p>
         </div>
       </article>
     </template>
