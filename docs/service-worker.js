@@ -1,4 +1,4 @@
-const CACHE_NAME = "clearclause-v5-formal-zh";
+const CACHE_NAME = "clearclause-v6-zh-layout";
 const APP_SHELL = [
   "./", "./index.html", "./styles.css", "./app.js", "./manifest.webmanifest",
   "./icons/app-icon.svg", "./icons/app-icon-180.png", "./icons/app-icon-512.png"
