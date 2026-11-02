@@ -195,6 +195,8 @@ const translations = {
 };
 
 const initialLocale = (() => {
+  const requested = new URLSearchParams(location.search).get("lang");
+  if (requested === "en" || requested === "zh-Hant") return requested;
   try {
     const saved = localStorage.getItem("clearclause-locale");
     if (saved === "en" || saved === "zh-Hant") return saved;
@@ -214,7 +216,7 @@ const selectedLabel = (selector) => document.querySelector(selector).selectedOpt
 
 function showScreen(id, push = true) {
   screens.forEach((screen) => screen.classList.toggle("active", screen.id === id));
-  if (push) history.pushState({ screen: id }, "", `#${id}`);
+  if (push) history.pushState({ screen: id }, "", `${location.pathname}${location.search}#${id}`);
   window.scrollTo({ top: 0, behavior: "auto" });
 }
 
@@ -301,7 +303,7 @@ function updateAnalysisCopy() {
   document.querySelector("#analysis-context").textContent = format("analysisContext", { role: selectedLabel("#party-role") });
 }
 
-function applyLocale(nextLocale, persist = true) {
+function applyLocale(nextLocale, persist = true, updateUrl = false) {
   const previousDefault = t("goalDefault");
   const currentGoal = goalInput.value.trim();
   state.locale = nextLocale === "zh-Hant" ? "zh-Hant" : "en";
@@ -323,6 +325,11 @@ function applyLocale(nextLocale, persist = true) {
   }
   if (persist) {
     try { localStorage.setItem("clearclause-locale", state.locale); } catch {}
+  }
+  if (updateUrl) {
+    const url = new URL(location.href);
+    url.searchParams.set("lang", state.locale);
+    history.replaceState(history.state, "", `${url.pathname}${url.search}${url.hash}`);
   }
   renderFiles();
   if (document.querySelector("#analysis").classList.contains("active")) updateAnalysisCopy();
@@ -359,7 +366,7 @@ function beginAnalysis() {
   }, 70);
 }
 
-document.querySelector("#language-toggle").addEventListener("click", () => applyLocale(state.locale === "en" ? "zh-Hant" : "en"));
+document.querySelector("#language-toggle").addEventListener("click", () => applyLocale(state.locale === "en" ? "zh-Hant" : "en", true, true));
 document.querySelector("#start-button").addEventListener("click", () => showScreen("setup"));
 document.querySelectorAll("[data-go]").forEach((button) => button.addEventListener("click", () => showScreen(button.dataset.go)));
 fileInput.addEventListener("change", () => addFiles(fileInput.files));

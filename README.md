@@ -44,6 +44,8 @@ The `docs/` directory contains a static progressive web app suitable for GitHub 
 
 **Live app:** [https://c7sgwnj6sk-ops.github.io/clearclause/](https://c7sgwnj6sk-ops.github.io/clearclause/)
 
+**Traditional Chinese:** [https://c7sgwnj6sk-ops.github.io/clearclause/?lang=zh-Hant](https://c7sgwnj6sk-ops.github.io/clearclause/?lang=zh-Hant)
+
 The current review remains sample content. Selected documents are not uploaded or read. A production legal checker still requires bilingual OCR, page-to-clause mapping, a tested analysis engine, source-version tracking, and review by Hong Kong-qualified lawyers.
 
 To install the deployed version on iPhone: open its GitHub Pages URL in Safari, tap **Share**, choose **Add to Home Screen**, and open it once while online.
